@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Map</title>
+    <title>Route Risk and Information Map</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=0.01">
-    <link rel="stylesheet" href="leaflet/leaflet.css">
-    <script src="leaflet/leaflet.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHmet2L30P-Wbn5URF0OvhiXFUv1clfkY&callback=initMap&libraries=&v=weekly&v=beta&map_ids=8d2cf3d0fcf86c53" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css?v=0.01">
     <!--<link rel="stylesheet" href="jquery-ui.css">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -23,12 +23,8 @@
 
 <body>
     <ul class="topnav">
-        <li class="topnav title"><i class="fas fa-code-branch title-icon"></i>Network Map<sup id="titleSuperscript"></sup></li>
+        <li class="topnav title"><i class="fas fa-code-branch title-icon"></i>Route Risk and Information Map<sup id="titleSuperscript"></sup></li>
     </ul>
-
-    <div id="networkMap"></div>
-
-
-    
+    <div id="map"></div>
 </body>
 </html> 

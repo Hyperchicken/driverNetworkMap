@@ -1,11 +1,22 @@
 * {
     box-sizing: border-box;
 }
+  
+  /* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}  
 
 body {
     background-color: #DDD;
     color: white;
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+
+#map {
+    height: 100%;
 }
 
 ul.topnav {
@@ -73,10 +84,6 @@ li.dropdown {
 
 .menu-icon {
     margin-right: 10px;
-}
-
-#networkMap {
-    height: 800px;
 }
 
 a {

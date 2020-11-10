@@ -1,20 +1,137 @@
-$(document).ready(function(){
-    var networkMap = L.map('networkMap',{
-        crs: L.CRS.Simple,
-        minZoom: 0
+let map;
+
+function initMap() {
+    const railwayMapType = new google.maps.StyledMapType(
+        [
+            { elementType: "geometry", stylers: [{ color: "#ebe3cd" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1e6" }] },
+            {
+                featureType: "administrative",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#c9b2a6" }],
+            },
+            {
+                featureType: "administrative.land_parcel",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#dcd2be" }],
+            },
+            {
+                featureType: "administrative.land_parcel",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#ae9e90" }],
+            },
+            {
+                featureType: "landscape.natural",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#93817c" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry.fill",
+                stylers: [{ color: "#a5b076" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#447530" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [{ color: "#f5f1e6" }],
+            },
+            {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [{ color: "#fdfcf8" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [{ color: "#f8c967" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#e9bc62" }],
+            },
+            {
+                featureType: "road.highway.controlled_access",
+                elementType: "geometry",
+                stylers: [{ color: "#e98d58" }],
+            },
+            {
+                featureType: "road.highway.controlled_access",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#db8555" }],
+            },
+            {
+                featureType: "road.local",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#806b63" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#8f7d77" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "labels.text.stroke",
+                stylers: [{ color: "#ebe3cd" }],
+            },
+            {
+                featureType: "transit.station",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "water",
+                elementType: "geometry.fill",
+                stylers: [{ color: "#b9d3c2" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#92998d" }],
+            },
+        ],
+        { name: "Railway Network" }
+    );
+    
+
+    map = new google.maps.Map(document.getElementById("map"), {
+        mapId: "8d2cf3d0fcf86c53",
+        center: { lat: -37.816696, lng: 144.996737 }, //centre map to Melbourne
+        zoom: 12,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+            mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "railway"],
+        },  
     });
-    
-    
-    var bounds = [[0,0], [1000,1000]];
-    var image = L.imageOverlay('images/wiki-svg-metro-map.svg', bounds).addTo(networkMap);
-    networkMap.fitBounds(bounds);
+    //Associate the styled map with the MapTypeId and set it to display.
+    //map.mapTypes.set("railway", railwayMapType);
+    //map.setMapTypeId("railway");
 
-    networkMap.on("contextmenu", function (event) {
-        console.log("Coordinates: " + event.latlng.toString());
-        L.marker(event.latlng).addTo(networkMap);
-      });
+    //map.setMapTypeId("terrain");
+    const transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
 
-    var DNG = L.latLng([484, 689]);
-    var CFD = L.latLng([100, 100]);
-    L.marker(DNG).addTo(networkMap).bindPopup('<p>Dandenong (DNG)<br /><ul><li><a>Sidings</a></li><li><a>Terminating Moves</a></li><li><a>Signal Diagram/Mud Map</a></li></ul></p>');
-});
+
+}
