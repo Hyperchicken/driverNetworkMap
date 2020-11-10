@@ -8,6 +8,10 @@ body {
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 ul.topnav {
     font-family: Raleway, Arial, Helvetica, sans-serif;
     list-style-type: none;
@@ -76,7 +80,11 @@ li.dropdown {
 }
 
 #networkMap {
-    height: 800px;
+    height: 100%;
+}
+
+.network-map-container {
+    height: 100%;
 }
 
 a {
