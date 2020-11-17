@@ -1,8 +1,7 @@
 * {
     box-sizing: border-box;
 }
-  
-  /* Optional: Makes the sample page fill the window. */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -15,14 +14,21 @@ body {
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
 }
 
-#map {
+.flex-container {
+    display: flex;
+    flex-flow: column;
     height: 100%;
 }
 
+#map {
+    flex: 1 1 auto;
+}
+
 ul.topnav {
+    flex: 0 1 auto;
     font-family: Raleway, Arial, Helvetica, sans-serif;
     list-style-type: none;
-    margin: -8px -8px 0 -8px;
+    margin: 0;
     padding: 0px;
     overflow: hidden;
     background-color: #333;

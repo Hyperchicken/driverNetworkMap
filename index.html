@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Risk and Information Map</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHmet2L30P-Wbn5URF0OvhiXFUv1clfkY&callback=initMap&libraries=&v=weekly&v=beta&map_ids=8d2cf3d0fcf86c53" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css?v=0.01">
     <!--<link rel="stylesheet" href="jquery-ui.css">
     <link rel="shortcut icon" href="favicon.ico">
@@ -17,14 +16,16 @@
     <link rel="manifest" href="site.webmanifest">
     <script src="jquery-ui.js"></script>-->
     <script src="jquery.js"></script> 
-    <script src="main.js?v=0.01"></script> 
     <script defer src="icons/font-awesome-all.js"></script> 
 </head>
 
 <body>
-    <ul class="topnav">
-        <li class="topnav title"><i class="fas fa-code-branch title-icon"></i>Route Risk and Information Map<sup id="titleSuperscript"></sup></li>
-    </ul>
-    <div id="map"></div>
+    <div class="flex-container">
+        <ul class="topnav">
+            <li class="topnav title"><i class="fas fa-code-branch title-icon"></i>Route Risk and Information Map<sup id="titleSuperscript"></sup></li>
+        </ul>
+        <div id="map" class="map"></div>
+    </div>
+    <script src="main.js?v=0.01"></script> 
 </body>
 </html> 
