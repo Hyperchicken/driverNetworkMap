@@ -6,7 +6,7 @@ let viewDefault = new ol.View({
 
 let railCorridorLayer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-        url: 'http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms',
+        url: 'https://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms',
         params: {
             'VERSION': '1.1.1',
             'LAYERS': 'PTV_TRAIN_CORRIDOR_CENTRELINE',
@@ -18,7 +18,7 @@ let railCorridorLayer = new ol.layer.Tile({
 
 let trainStationLayer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-        url: 'http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms',
+        url: 'https://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms',
         params: {
             'VERSION': '1.1.1',
             'LAYERS': 'PTV_METRO_TRAIN_STATION',
